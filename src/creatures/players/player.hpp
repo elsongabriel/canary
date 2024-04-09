@@ -37,6 +37,7 @@
 #include "enums/player_cyclopedia.hpp"
 #include "creatures/players/cyclopedia/player_badge.hpp"
 #include "creatures/players/cyclopedia/player_title.hpp"
+#include "creatures/players/cyclopedia/player_cyclopedia.hpp"
 
 class House;
 class NetworkMessage;
@@ -53,6 +54,7 @@ class Spell;
 class PlayerWheel;
 class PlayerAchievement;
 class PlayerBadge;
+class PlayerCyclopedia;
 class PlayerTitle;
 class Spectators;
 class Account;
@@ -2624,6 +2626,10 @@ public:
 	std::unique_ptr<PlayerTitle> &title();
 	const std::unique_ptr<PlayerTitle> &title() const;
 
+	// Player summary interface
+	std::unique_ptr<PlayerCyclopedia> &cyclopedia();
+	const std::unique_ptr<PlayerCyclopedia> &cyclopedia() const;
+
 	void sendLootMessage(const std::string &message) const;
 
 	std::shared_ptr<Container> getLootPouch();
@@ -3019,11 +3025,13 @@ private:
 	friend class IOLoginDataSave;
 	friend class PlayerAchievement;
 	friend class PlayerBadge;
+	friend class PlayerCyclopedia;
 	friend class PlayerTitle;
 
 	std::unique_ptr<PlayerWheel> m_wheelPlayer;
 	std::unique_ptr<PlayerAchievement> m_playerAchievement;
 	std::unique_ptr<PlayerBadge> m_playerBadge;
+	std::unique_ptr<PlayerCyclopedia> m_playerCyclopedia;
 	std::unique_ptr<PlayerTitle> m_playerTitle;
 
 	std::mutex quickLootMutex;
