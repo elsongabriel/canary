@@ -86,67 +86,6 @@ void PlayerCyclopedia::loadDeathHistory() {
 	g_logger().debug("Checking and updating death history of player {} took {} milliseconds.", m_player.getName(), bm_check.duration());
 }
 
-// Other Functions
-void PlayerCyclopedia::addXpBoostsObtained(uint16_t amount) {
-	m_storeXpBoosts += amount;
-}
-
-void PlayerCyclopedia::addRewardCollectionObtained(uint16_t amount) {
-	m_dailyRewardCollections += amount;
-}
-
-void PlayerCyclopedia::addHirelingsObtained(uint16_t amount) {
-	m_hirelings += amount;
-}
-
-void PlayerCyclopedia::addPreyCardsObtained(uint16_t amount) {
-	m_preyCards += amount;
-}
-
-void PlayerCyclopedia::addCharmsPointsObtained(uint16_t amount) {
-	m_charms += amount;
-}
-
-void PlayerCyclopedia::addGoshnarTaintsObtained(uint16_t amount) {
-	m_goshnar += amount;
-}
-
-void PlayerCyclopedia::addDromePointsObtained(uint16_t amount) {
-	m_drome += amount;
-}
-
-void PlayerCyclopedia::addLoginStreak(uint16_t amount) {
-	m_loginStreak += amount;
-}
-
-void PlayerCyclopedia::addTaskHuntingPointsObtained(uint16_t amount) {
-	m_taskHuntingPoints += amount;
-}
-
-void PlayerCyclopedia::addMapAreaDiscoveredPercentage(uint16_t amount) {
-	m_mapAreaDiscoveredPercentage += amount;
-}
-
-void PlayerCyclopedia::addHirelingOutfitObtained(uint16_t lookType) {
-	m_hirelingOutfits.push_back(lookType);
-}
-
-void PlayerCyclopedia::addHirelingJobsObtained(uint8_t jobId) {
-	m_hirelingJobs.push_back(jobId);
-}
-
-void PlayerCyclopedia::addBlessingsObtained(Blessings_t id, uint16_t amount) {
-	m_blessings[id] += amount;
-}
-
-// void PlayerCyclopedia::addHouseItemsObtained(uint16_t itemId, uint32_t amount) {
-//	m_houseItems[itemId] += amount;
-// }
-
-// std::map<uint8_t, std::vector<uint16_t>> PlayerCyclopedia::getAccountLevelVocation() const {
-//     return accountLevelSummary;
-// }
-
 std::vector<RecentDeathEntry> PlayerCyclopedia::getDeathHistory() const {
 	return m_deathHistory;
 }
@@ -161,6 +100,9 @@ std::vector<RecentPvPKillEntry> PlayerCyclopedia::getPvpKillsHistory() const {
 
 void PlayerCyclopedia::insertPvpKillOnHistory(std::string cause, uint32_t timestamp, uint8_t status) {
 	m_pvpKillsHistory.emplace_back(std::move(cause), timestamp, status);
+}
+
+void PlayerCyclopedia::updateStoreSummary(uint8_t type, uint16_t count, uint8_t itemType, uint8_t offerId, uint8_t blessId) {
 }
 
 // const std::shared_ptr<KV> &PlayerTitle::getSummary(std::string &key) {

@@ -3949,7 +3949,7 @@ void ProtocolGame::sendCyclopediaCharacterStoreSummary() {
 	msg.addByte(0x00); // getTaskHuntingSlotById
 	msg.addByte(0x00); // getPreyCardsObtained
 	msg.addByte(0x00); // getRewardCollectionObtained
-	msg.addByte(0x00); // player->hasCharmExpansion() ? 0x01 : 0x00
+	msg.addByte(player->hasCharmExpansion() ? 0x01 : 0x00);
 	msg.addByte(0x00); // getHirelingsObtained
 	msg.addByte(0x00); // getHirelinsJobsObtained
 	msg.addByte(0x00); // getHirelinsOutfitsObtained

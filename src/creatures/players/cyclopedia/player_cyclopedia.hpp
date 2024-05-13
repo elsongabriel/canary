@@ -48,21 +48,7 @@ public:
 	[[nodiscard]] std::vector<RecentPvPKillEntry> getPvpKillsHistory() const;
 	void insertPvpKillOnHistory(std::string cause, uint32_t timestamp, uint8_t status);
 
-	void addXpBoostsObtained(uint16_t amount);
-	void addRewardCollectionObtained(uint16_t amount);
-	void addHirelingsObtained(uint16_t amount);
-	void addPreyCardsObtained(uint16_t amount);
-	void addCharmsPointsObtained(uint16_t amount);
-	void addGoshnarTaintsObtained(uint16_t amount);
-	void addDromePointsObtained(uint16_t amount);
-	void addLoginStreak(uint16_t amount);
-	void addTaskHuntingPointsObtained(uint16_t amount);
-	void addMapAreaDiscoveredPercentage(uint16_t amount);
-
-	void addHirelingOutfitObtained(uint16_t lookType);
-	void addHirelingJobsObtained(uint8_t jobId);
-	void addBlessingsObtained(Blessings_t id, uint16_t amount);
-	//	void addHouseItemsObtained(uint16_t itemId, uint32_t amount);
+	void updateStoreSummary(uint8_t type, uint16_t count = 1, uint8_t itemType = 0, uint8_t offerId = 0, uint8_t blessId = 0);
 
 private:
 	uint16_t m_storeXpBoosts = 0;
